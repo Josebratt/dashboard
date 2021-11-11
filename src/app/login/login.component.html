@@ -1,27 +1,31 @@
 <div class="login-container">
-    <div class="ui card login-card">
-        <div class="content">
-            <form class="ui form">
-            <div class="two fields">
-                <div class="field">
-                    <label>First Name</label>
-                    <input type="text" name="firstName" placeholder="First Name" />
+    <div class="card" style="width: 20rem;">
+        <div class="card-header">
+          <h3>Login</h3>
+        </div>
+        <div class="card-body">
+            <form class="row g-3" #form="ngForm" (submit)="onSubmit(form)" [class.loading]="loading">
+                <div class="col-md-6">
+                    <label class="form-label">First Name</label>
+                    <input type="text" name="firstName" class="form-control" placeholder="First Name" [(ngModel)]="user.firstName" [ngModelOptions]="{standalone: true}">
                 </div>
-                <div class="field">
-                    <label>Last Name</label>
-                    <input type="text" name="lastName" placeholder="Last Name" />
+                <div class="col-md-6">
+                    <label class="form-label">Last Name</label>
+                    <input type="text" name="lastName" class="form-control" placeholder="Last Name" [(ngModel)]="user.lastName" [ngModelOptions]="{standalone: true}">
                 </div>
-            </div>
-            <div class="field">
-                <label>Email</label>
-                <input type="email" name="email" placeholder="Email" />
-            </div>
-            <div class="field">
-                <label>Password</label>
-                <input type="password" name="password" placeholder="Password" />
-            </div>
-            <button class="ui primary button login" type="submit">Sign Up</button>
-            </form>
+                <div class="col-12">
+                    <label class="form-label">Email</label>
+                    <input type="email" name="Email" class="form-control" placeholder="Email" [(ngModel)]="user.email" [ngModelOptions]="{standalone: true}">
+                </div>
+                <div class="col-12">
+                    <label class="form-label">Password</label>
+                    <input type="password" name="Password" class="form-control" placeholder="Password" [(ngModel)]="user.password" [ngModelOptions]="{standalone: true}">
+                </div>
+
+                <div class="col-12">
+                  <button type="submit" class="btn btn-primary">Sign in</button>
+                </div>
+              </form>
         </div>
     </div>
 </div>
